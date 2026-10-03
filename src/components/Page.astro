@@ -1,0 +1,202 @@
+---
+import Base from "../layouts/Base.astro";
+import { SITE, content, stack, type Lang } from "../data/content";
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const c = content[lang];
+const wa = `${SITE.whatsapp}?text=${encodeURIComponent(c.waText)}`;
+const loop = [...stack, ...stack];
+const sections = [
+  ["services", c.nav.services],
+  ["projects", c.nav.projects],
+  ["process", c.nav.process],
+  ["faq", c.nav.faq],
+  ["contact", c.nav.contact],
+] as const;
+const waPath = "M4 3h16a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H9l-5 4v-4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z";
+---
+<Base lang={lang}>
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:z-50 focus:rounded-lg focus:bg-white focus:px-3 focus:py-2 focus:text-black">{c.skip}</a>
+
+  <header class="sticky top-0 z-40 border-b border-line bg-ink/90 backdrop-blur-sm">
+    <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
+      <a href={c.path} class="flex items-center gap-2 font-bold" aria-label="Joseph Vega">
+        <img src="/favicon.svg" alt="" width="28" height="28" class="rounded-lg" />
+        <span>Joseph<span class="grad-text"> Vega</span></span>
+      </a>
+      <nav aria-label="Principal" class="hidden gap-7 text-sm text-zinc-300 md:flex">
+        {sections.map(([id, label]) => <a href={`#${id}`} class="hover:text-white">{label}</a>)}
+      </nav>
+      <div class="flex items-center gap-2">
+        <a href={c.altPath} hreflang={lang === "es" ? "en" : "es"} class="grid min-h-10 min-w-10 place-items-center rounded-lg border border-line text-xs font-semibold text-zinc-300">{c.altLabel}</a>
+        <a href={wa} class="btn btn-primary !min-h-10 text-sm" rel="noopener" target="_blank">WhatsApp</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero-bg">
+      <div class="mx-auto max-w-6xl px-5 pb-16 pt-14 md:pb-24 md:pt-24">
+        <p class="rise inline-flex items-center gap-2 rounded-full border border-line bg-panel px-3 py-1.5 text-sm text-zinc-300" style="--d:0">
+          <span class="pulse-dot relative inline-block h-2 w-2 rounded-full bg-emerald-400"></span>{c.hero.badge}
+        </p>
+        <h1 class="rise mt-6 text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-6xl md:text-7xl" style="--d:1">
+          {c.hero.h1a}<br /><span class="grad-text">{c.hero.h1b}</span>
+        </h1>
+        <p class="rise mt-6 max-w-2xl text-lg leading-relaxed text-zinc-300" style="--d:2">{c.hero.sub}</p>
+        <div class="rise mt-8 flex flex-col gap-3 sm:flex-row" style="--d:3">
+          <a href={wa} class="btn btn-primary" rel="noopener" target="_blank">{c.hero.cta1}</a>
+          <a href={SITE.cv} class="btn btn-ghost" rel="noopener">{c.hero.cta2} ↓</a>
+          <a href={`mailto:${SITE.email}`} class="btn btn-ghost">{c.hero.cta3}</a>
+        </div>
+        <dl class="rise mt-14 grid grid-cols-2 gap-3 md:grid-cols-4" style="--d:4">
+          {c.stats.map((s) => (
+            <div class="card p-4">
+              <dt class="grad-text text-2xl font-extrabold">{s.n}</dt>
+              <dd class="mt-1 text-sm text-zinc-400">{s.l}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </section>
+
+    <!-- STACK MARQUEE -->
+    <section aria-label={c.stackTitle} class="overflow-hidden border-y border-line bg-panel/60 py-4">
+      <ul class="marquee gap-3 px-3" aria-hidden="false">
+        {loop.map((t) => <li class="whitespace-nowrap rounded-full border border-line px-4 py-1.5 text-sm text-zinc-300">{t}</li>)}
+      </ul>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="mx-auto max-w-6xl px-5 py-20">
+      <h2 class="reveal text-3xl font-extrabold tracking-tight md:text-4xl">{c.servicesTitle}</h2>
+      <p class="reveal mt-3 max-w-2xl text-zinc-400">{c.servicesSub}</p>
+      <ul class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {c.services.map((s) => (
+          <li class="card reveal p-6">
+            <span class="text-3xl" aria-hidden="true">{s.i}</span>
+            <h3 class="mt-4 text-lg font-bold">{s.t}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-zinc-400">{s.d}</p>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="bg-panel/50 py-20">
+      <div class="mx-auto max-w-6xl px-5">
+        <h2 class="reveal text-3xl font-extrabold tracking-tight md:text-4xl">{c.projectsTitle}</h2>
+        <p class="reveal mt-3 text-zinc-400">{c.projectsSub}</p>
+        <ul class="mt-10 grid gap-4 md:grid-cols-2">
+          {c.projects.map((p) => (
+            <li class="card reveal overflow-hidden">
+              <div class={`h-2 bg-gradient-to-r ${p.tone}`}></div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold">{p.t}</h3>
+                <p class="mt-2 text-sm leading-relaxed text-zinc-400">{p.d}</p>
+                <ul class="mt-4 flex flex-wrap gap-2">
+                  {p.tags.map((t) => <li class="rounded-md bg-white/5 px-2.5 py-1 text-xs text-zinc-300">{t}</li>)}
+                </ul>
+                {"href" in p && (
+                  <a href={p.href} class="mt-5 inline-flex min-h-11 items-center font-semibold text-violet-300 hover:text-white" target="_blank" rel="noopener">{c.visit} →</a>
+                )}
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <!-- WHY -->
+    <section class="mx-auto max-w-6xl px-5 py-20">
+      <h2 class="reveal text-3xl font-extrabold tracking-tight md:text-4xl">{c.whyTitle}</h2>
+      <ul class="mt-10 grid gap-4 sm:grid-cols-2">
+        {c.why.map((w, i) => (
+          <li class="card reveal flex gap-4 p-6">
+            <span class="grad-text text-3xl font-extrabold" aria-hidden="true">0{i + 1}</span>
+            <div>
+              <h3 class="font-bold">{w.t}</h3>
+              <p class="mt-1 text-sm leading-relaxed text-zinc-400">{w.d}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="process" class="bg-panel/50 py-20">
+      <div class="mx-auto max-w-6xl px-5">
+        <h2 class="reveal text-3xl font-extrabold tracking-tight md:text-4xl">{c.processTitle}</h2>
+        <ol class="mt-10 grid gap-4 md:grid-cols-4">
+          {c.process.map((s, i) => (
+            <li class="card reveal p-6">
+              <span class="grid h-9 w-9 place-items-center rounded-full bg-gradient-to-br from-violet-500 to-cyan-500 font-bold text-white">{i + 1}</span>
+              <h3 class="mt-4 font-bold">{s.t}</h3>
+              <p class="mt-1 text-sm leading-relaxed text-zinc-400">{s.d}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="mx-auto max-w-3xl px-5 py-20">
+      <h2 class="reveal text-3xl font-extrabold tracking-tight md:text-4xl">{c.expTitle}</h2>
+      <ol class="mt-10 space-y-6 border-l border-line pl-6">
+        {c.exp.map((e) => (
+          <li class="reveal relative">
+            <span class="absolute -left-[31px] top-1.5 h-2.5 w-2.5 rounded-full bg-violet-400"></span>
+            <p class="text-xs font-semibold uppercase tracking-wide text-cyan-300">{e.p}</p>
+            <h3 class="mt-1 font-bold">{e.r} · <span class="text-zinc-300">{e.c}</span></h3>
+            <p class="mt-1 text-sm leading-relaxed text-zinc-400">{e.d}</p>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="bg-panel/50 py-20">
+      <div class="mx-auto max-w-3xl px-5">
+        <h2 class="reveal text-3xl font-extrabold tracking-tight md:text-4xl">{c.faqTitle}</h2>
+        <div class="mt-8 space-y-3">
+          {c.faq.map((f) => (
+            <details class="card group px-5 py-1">
+              <summary class="flex min-h-14 items-center justify-between gap-4 font-semibold">
+                {f.q}
+                <span class="chev shrink-0 text-violet-300 transition-transform" aria-hidden="true">▾</span>
+              </summary>
+              <p class="pb-4 text-sm leading-relaxed text-zinc-400">{f.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="contact" class="hero-bg">
+      <div class="mx-auto max-w-3xl px-5 py-24 text-center">
+        <h2 class="text-3xl font-extrabold tracking-tight md:text-5xl">{c.ctaTitle}</h2>
+        <p class="mt-4 text-lg text-zinc-300">{c.ctaSub}</p>
+        <div class="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+          <a href={wa} class="btn btn-primary" rel="noopener" target="_blank">{c.hero.cta1}</a>
+          <a href={`mailto:${SITE.email}`} class="btn btn-ghost">{SITE.email}</a>
+        </div>
+        <p class="mt-6 flex justify-center gap-6 text-sm text-zinc-400">
+          <a href={SITE.linkedin} rel="noopener me" target="_blank" class="inline-flex min-h-11 items-center hover:text-white">LinkedIn</a>
+          <a href={SITE.github} rel="noopener me" target="_blank" class="inline-flex min-h-11 items-center hover:text-white">GitHub</a>
+          <a href={SITE.cv} rel="noopener" class="inline-flex min-h-11 items-center hover:text-white">CV (PDF)</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-line px-5 py-8 pb-24 text-center text-sm text-zinc-500 md:pb-8">
+    © {new Date().getFullYear()} {SITE.name} · {c.footer}
+  </footer>
+
+  <a href={wa} target="_blank" rel="noopener" aria-label="WhatsApp" class="fixed bottom-4 right-4 z-40 grid h-14 w-14 place-items-center rounded-full bg-emerald-500 shadow-lg shadow-emerald-500/30 md:hidden">
+    <svg viewBox="0 0 24 24" width="28" height="28" fill="#fff" aria-hidden="true"><path d={waPath}></path></svg>
+  </a>
+</Base>
