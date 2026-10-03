@@ -41,6 +41,7 @@ export const content = {
       cta1: "Cotizar por WhatsApp",
       cta2: "Descargar CV",
       cta3: "Escríbeme por correo",
+      imgAlt: "Ilustración de un sitio web moderno, código y versión móvil",
     },
     stats: [
       { n: "3+", l: "años de experiencia" },
@@ -62,10 +63,10 @@ export const content = {
     projectsSub: "Una muestra del trabajo que he entregado.",
     visit: "Ver sitio en vivo",
     projects: [
-      { t: "Sitio web corporativo Metal Mecánica", d: "Web institucional rápida y optimizada para SEO para una empresa del rubro metalmecánico.", tags: ["Next.js", "React", "Tailwind CSS"], href: "https://ndn.pe", tone: "from-violet-500 to-fuchsia-500" },
-      { t: "Sistema de Gestión de Producción", d: "Aplicación para optimizar el control de producción y la visibilidad de procesos en planta.", tags: ["React", "Laravel", "Node.js", "MySQL"], tone: "from-cyan-400 to-blue-500" },
-      { t: "Sistema de Gestión Minera", d: "Pesaje, formación de lotes y liquidación de proveedores en una sola plataforma.", tags: ["Docker", "Kubernetes", "AWS", "CI/CD"], tone: "from-amber-400 to-orange-500" },
-      { t: "Automatización y despliegue DevOps", d: "Despliegue de aplicaciones en servidores Linux con Dokploy, Docker Compose y automatización.", tags: ["Dokploy", "Docker", "Linux"], tone: "from-emerald-400 to-teal-500" },
+      { t: "Sitio web corporativo Metal Mecánica", d: "Web institucional rápida y optimizada para SEO para una empresa del rubro metalmecánico.", tags: ["Next.js", "React", "Tailwind CSS"], href: "https://ndn.pe", img: "/img/ndn.webp", alt: "Captura del sitio web ndn.pe" },
+      { t: "Sistema de Gestión de Producción", d: "Aplicación para optimizar el control de producción y la visibilidad de procesos en planta.", tags: ["React", "Laravel", "Node.js", "MySQL"], img: "/img/proj-produccion.svg", alt: "Ilustración del panel de producción" },
+      { t: "Sistema de Gestión Minera", d: "Pesaje, formación de lotes y liquidación de proveedores en una sola plataforma.", tags: ["Docker", "Kubernetes", "AWS", "CI/CD"], img: "/img/proj-minera.svg", alt: "Ilustración del panel de gestión minera" },
+      { t: "Automatización y despliegue DevOps", d: "Despliegue de aplicaciones en servidores Linux con Dokploy, Docker Compose y automatización.", tags: ["Dokploy", "Docker", "Linux"], img: "/img/proj-devops.svg", alt: "Ilustración de la terminal de despliegue y servicios" },
     ],
     whyTitle: "Por qué trabajar conmigo",
     why: [
@@ -121,6 +122,7 @@ export const content = {
       cta1: "Get a quote on WhatsApp",
       cta2: "Download CV",
       cta3: "Email me",
+      imgAlt: "Illustration of a modern website, code and mobile version",
     },
     stats: [
       { n: "3+", l: "years of experience" },
@@ -142,10 +144,10 @@ export const content = {
     projectsSub: "A sample of work I've delivered.",
     visit: "Visit live site",
     projects: [
-      { t: "Metal-mechanics corporate website", d: "Fast, SEO-optimized corporate site for a metal-mechanics company.", tags: ["Next.js", "React", "Tailwind CSS"], href: "https://ndn.pe", tone: "from-violet-500 to-fuchsia-500" },
-      { t: "Production Management System", d: "Application that optimizes production control and process visibility on the plant floor.", tags: ["React", "Laravel", "Node.js", "MySQL"], tone: "from-cyan-400 to-blue-500" },
-      { t: "Mining Management System", d: "Weighing, batch formation and supplier settlement in a single platform.", tags: ["Docker", "Kubernetes", "AWS", "CI/CD"], tone: "from-amber-400 to-orange-500" },
-      { t: "DevOps automation and deployment", d: "Application deployment on Linux servers using Dokploy, Docker Compose and automation.", tags: ["Dokploy", "Docker", "Linux"], tone: "from-emerald-400 to-teal-500" },
+      { t: "Metal-mechanics corporate website", d: "Fast, SEO-optimized corporate site for a metal-mechanics company.", tags: ["Next.js", "React", "Tailwind CSS"], href: "https://ndn.pe", img: "/img/ndn.webp", alt: "Screenshot of the ndn.pe website" },
+      { t: "Production Management System", d: "Application that optimizes production control and process visibility on the plant floor.", tags: ["React", "Laravel", "Node.js", "MySQL"], img: "/img/proj-produccion.svg", alt: "Illustration of the production dashboard" },
+      { t: "Mining Management System", d: "Weighing, batch formation and supplier settlement in a single platform.", tags: ["Docker", "Kubernetes", "AWS", "CI/CD"], img: "/img/proj-minera.svg", alt: "Illustration of the mining management dashboard" },
+      { t: "DevOps automation and deployment", d: "Application deployment on Linux servers using Dokploy, Docker Compose and automation.", tags: ["Dokploy", "Docker", "Linux"], img: "/img/proj-devops.svg", alt: "Illustration of the deployment terminal and services" },
     ],
     whyTitle: "Why work with me",
     why: [

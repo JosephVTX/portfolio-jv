@@ -38,11 +38,13 @@ const waPath = "M4 3h16a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H9l-5 4v-4a2 2 0 0 1-2-2V5
   <main id="main">
     <!-- HERO -->
     <section class="hero-bg">
-      <div class="mx-auto max-w-6xl px-5 pb-16 pt-14 md:pb-24 md:pt-24">
+      <div class="mx-auto max-w-6xl px-5 pb-16 pt-12 md:pb-24 md:pt-20">
+        <div class="grid items-center gap-10 lg:grid-cols-[1.1fr_.9fr]">
+        <div>
         <p class="rise inline-flex items-center gap-2 rounded-full border border-line bg-white px-3 py-1.5 text-sm text-slate-600" style="--d:0">
           <span class="pulse-dot relative inline-block h-2 w-2 rounded-full bg-emerald-400"></span>{c.hero.badge}
         </p>
-        <h1 class="rise mt-6 text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-6xl md:text-7xl" style="--d:1">
+        <h1 class="rise mt-6 text-balance text-4xl font-extrabold leading-[1.08] tracking-tight sm:text-5xl xl:text-6xl" style="--d:1">
           {c.hero.h1a}<br /><span class="grad-text">{c.hero.h1b}</span>
         </h1>
         <p class="rise mt-6 max-w-2xl text-lg leading-relaxed text-slate-600" style="--d:2">{c.hero.sub}</p>
@@ -50,6 +52,9 @@ const waPath = "M4 3h16a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H9l-5 4v-4a2 2 0 0 1-2-2V5
           <a href={wa} class="btn btn-primary" rel="noopener" target="_blank">{c.hero.cta1}</a>
           <a href={SITE.cv} class="btn btn-ghost" rel="noopener">{c.hero.cta2} ↓</a>
           <a href={`mailto:${SITE.email}`} class="btn btn-ghost">{c.hero.cta3}</a>
+        </div>
+        </div>
+        <img src="/img/hero.svg" alt={c.hero.imgAlt} width="800" height="620" fetchpriority="high" decoding="async" class="rise mx-auto w-full max-w-md lg:max-w-none" style="--d:2" />
         </div>
         <dl class="rise mt-14 grid grid-cols-2 gap-3 md:grid-cols-4" style="--d:4">
           {c.stats.map((s) => (
@@ -92,7 +97,7 @@ const waPath = "M4 3h16a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H9l-5 4v-4a2 2 0 0 1-2-2V5
         <ul class="mt-10 grid gap-4 md:grid-cols-2">
           {c.projects.map((p) => (
             <li class="card reveal overflow-hidden">
-              <div class={`h-2 bg-gradient-to-r ${p.tone}`}></div>
+              <img src={p.img} alt={p.alt} width="960" height="600" loading="lazy" decoding="async" class="aspect-[8/5] w-full border-b border-line object-cover" />
               <div class="p-6">
                 <h3 class="text-xl font-bold">{p.t}</h3>
                 <p class="mt-2 text-sm leading-relaxed text-slate-500">{p.d}</p>
