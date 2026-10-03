@@ -21,7 +21,7 @@ const waPath = "M4 3h16a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H9l-5 4v-4a2 2 0 0 1-2-2V5
 
   <header class="sticky top-0 z-40 border-b border-line bg-white/90 backdrop-blur-sm">
     <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
-      <a href={c.path} class="flex items-center gap-2 font-bold" aria-label="Joseph Vega">
+      <a href={c.path} class="flex items-center gap-2 font-bold">
         <img src="/favicon.svg" alt="" width="28" height="28" class="rounded-lg" />
         <span>Joseph<span class="grad-text"> Vega</span></span>
       </a>
@@ -97,7 +97,7 @@ const waPath = "M4 3h16a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H9l-5 4v-4a2 2 0 0 1-2-2V5
         <ul class="mt-10 grid gap-4 md:grid-cols-2">
           {c.projects.map((p) => (
             <li class="card reveal overflow-hidden">
-              <img src={p.img} alt={p.alt} width="960" height="600" loading="lazy" decoding="async" class="aspect-[8/5] w-full border-b border-line object-cover" />
+              <img src={p.img} srcset={p.img.endsWith(".webp") ? `${p.img.replace(".webp", "-480.webp")} 480w, ${p.img.replace(".webp", "-720.webp")} 720w, ${p.img} 960w` : undefined} sizes="(min-width: 1152px) 560px, (min-width: 768px) 45vw, calc(100vw - 40px)" alt={p.alt} width="960" height="600" loading="lazy" decoding="async" class="aspect-[8/5] w-full border-b border-line object-cover" />
               <div class="p-6">
                 <h3 class="text-xl font-bold">{p.t}</h3>
                 <p class="mt-2 text-sm leading-relaxed text-slate-500">{p.d}</p>
