@@ -63,6 +63,7 @@ export const content = {
     projectsSub: "Una muestra del trabajo que he entregado.",
     visit: "Ver sitio en vivo",
     projects: [
+      { t: "Sazonia — Sistema para restaurantes", d: "SaaS para restaurantes y cafés del Perú: punto de venta, cocina en pantalla, caja, carta con pedidos por QR, facturación electrónica SUNAT, compras e inventario, y reportes. Funciona en celular y tablet.", tags: ["SaaS", "POS", "SUNAT", "QR", "PWA"], href: "https://sazonia.ndn.pe", img: "/img/sazonia.webp", alt: "Captura del punto de venta de Sazonia con el salón y las mesas" },
       { t: "Chaskiy — CRM con IA para WhatsApp", d: "CRM multi-cuenta con bandeja compartida, asistente de IA que responde (texto, audio e imágenes), embudo de ventas, campañas, automatizaciones y PWA móvil, pensado para negocios en Perú.", tags: ["IA", "WhatsApp", "CRM", "PWA", "Dokploy"], img: "/img/chaskiy.webp", alt: "Captura de la bandeja de Chaskiy con un chat atendido por el asistente de IA" },
       { t: "Sitio web corporativo Metal Mecánica", d: "Web institucional rápida y optimizada para SEO para una empresa del rubro metalmecánico.", tags: ["Next.js", "React", "Tailwind CSS"], href: "https://ndn.pe", img: "/img/ndn.webp", alt: "Captura del sitio web ndn.pe" },
       { t: "Sistema de Gestión de Producción", d: "Aplicación para optimizar el control de producción y la visibilidad de procesos en planta.", tags: ["React", "Laravel", "Node.js", "MySQL"], img: "/img/proj-produccion.svg", alt: "Ilustración del panel de producción" },
@@ -145,6 +146,7 @@ export const content = {
     projectsSub: "A sample of work I've delivered.",
     visit: "Visit live site",
     projects: [
+      { t: "Sazonia — Restaurant management system", d: "SaaS for restaurants and cafés in Peru: point of sale, kitchen display, cash register, QR menu ordering, SUNAT e-invoicing, purchasing and inventory, and reports. Works on phone and tablet.", tags: ["SaaS", "POS", "SUNAT", "QR", "PWA"], href: "https://sazonia.ndn.pe", img: "/img/sazonia.webp", alt: "Screenshot of the Sazonia point of sale showing the dining room and tables" },
       { t: "Chaskiy — AI-powered WhatsApp CRM", d: "Multi-account CRM with a shared inbox, an AI assistant that replies (text, audio and images), sales funnel, campaigns, automations and a mobile PWA, built for businesses in Peru.", tags: ["AI", "WhatsApp", "CRM", "PWA", "Dokploy"], img: "/img/chaskiy.webp", alt: "Screenshot of the Chaskiy inbox showing a chat handled by the AI assistant" },
       { t: "Metal-mechanics corporate website", d: "Fast, SEO-optimized corporate site for a metal-mechanics company.", tags: ["Next.js", "React", "Tailwind CSS"], href: "https://ndn.pe", img: "/img/ndn.webp", alt: "Screenshot of the ndn.pe website" },
       { t: "Production Management System", d: "Application that optimizes production control and process visibility on the plant floor.", tags: ["React", "Laravel", "Node.js", "MySQL"], img: "/img/proj-produccion.svg", alt: "Illustration of the production dashboard" },
